@@ -1,0 +1,10 @@
+component DC_minus_005_minus_5A_minus_2_period_0_minus_SMT:
+    # component DC_minus_005_minus_5A_minus_2_period_0_minus_SMT
+    footprint = "DC-IN-TH_DC-005-5A-2.0-SMT"
+    lcsc_id = "C319134"
+    mpn = "C319134"
+    # pins
+    signal VCC ~ pin 1
+    signal GND ~ pin 2
+    GND ~ pin 3
+

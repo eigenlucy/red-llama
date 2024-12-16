@@ -1,0 +1,23 @@
+component CD4049UBE:
+    # component CD4049UBE
+    footprint = "PDIP-16_L19.7-W6.6-P2.54-LS7.6-BL"
+    lcsc_id = "C32819"
+    mpn = "C32819"
+    # pins
+    signal VCC ~ pin 1
+    signal G_equal_A_hash ~ pin 2
+    signal A ~ pin 3
+    signal H_equal_B_hash ~ pin 4
+    signal B ~ pin 5
+    signal I_equal_C_hash ~ pin 6
+    signal C ~ pin 7
+    signal VSS ~ pin 8
+    signal D ~ pin 9
+    signal J_equal_D_hash ~ pin 10
+    signal E ~ pin 11
+    signal K_equal_E_hash ~ pin 12
+    signal NC ~ pin 13
+    signal F ~ pin 14
+    signal L_equal_F_hash ~ pin 15
+    NC ~ pin 16
+

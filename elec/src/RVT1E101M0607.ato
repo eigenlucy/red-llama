@@ -1,0 +1,9 @@
+component RVT1E101M0607:
+    # component RVT1E101M0607
+    footprint = "CAP-SMD_BD6.3-L6.6-W6.6-LS7.2-R-RD"
+    lcsc_id = "C3338"
+    mpn = "C3338"
+    # pins
+    signal p1 ~ pin 1
+    signal p2 ~ pin 2
+
