@@ -1,0 +1,9 @@
+component _210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black:
+    # component _210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black
+    footprint = "HDR-TH_2P-P2.54-V-M-1"
+    lcsc_id = "C124375"
+    mpn = "C124375"
+    # pins
+    signal p1 ~ pin 1
+    signal p2 ~ pin 2
+

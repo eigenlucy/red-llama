@@ -5,22 +5,48 @@ from "generics/diodes.ato" import Diode
 from "RVT1E101M0607.ato" import RVT1E101M0607
 from "CD4049UBE.ato" import CD4049UBE
 from "DC_minus_005_minus_5A_minus_2_period_0_minus_SMT.ato" import DC_minus_005_minus_5A_minus_2_period_0_minus_SMT
+from "_1N4001_C7528873.ato" import _1N4001_C7528873
+from "_210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black.ato" import _210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black
+from "Header_minus_Male_minus_2_period_54_1x3.ato" import Header_minus_Male_minus_2_period_54_1x3
 
 module RedLlama:
     power = new Power
+    signal INPUT
+    signal OUTPUT
+
     ic = new CD4049UBE
     dc_jack = new DC_minus_005_minus_5A_minus_2_period_0_minus_SMT
-    R1 = new Resistor; R1.value = 1kohm +/- 1%; R1.package = "0402"
+    R1 = new Resistor; R1.value = 1kohm +/- 1%; R1.package = "0805"
     R2 = new Resistor; R2.value = 100kohm +/- 1%; R2.package = "0402"
     R3 = new Resistor; R3.value = 1Mohm +/- 5%; R3.package = "0402"
     R4 = new Resistor; R4.value = 100kohm +/- 1%; R4.package = "0402"
     R5 = new Resistor; R5.value = 1Mohm +/- 5%; R5.package = "0402"
-    C1 = new CapacitorElectrolytic; C1 -> RVT1E101M0607
+    C1 = new  RVT1E101M0607
     C2 = new Capacitor; C2.value = 68nF +/- 10%; C2.package = "0402"
     C3 = new Capacitor; C3.value = 51pF +/- 10%; C3.package = "0402"
     C4 = new Capacitor; C4.value = 33nF +/- 10%; C4.package = "0402"
     C5 = new Capacitor; C5.value = 100pF +/- 10%; C5.package = "0402"
     C6 = new Capacitor; C6.value = 10uF +/- 10%; C6.package = "0603"
+    D1 = new _1N4001_C7528873
+    Input_Conn = new _210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black
+    Output_Conn = new _210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black
+    Power_Sw = new _210S_minus_1_star_2P_space_L_equal_11_period_6MMGold_minus_plated_space_black
+    VR1 = new Header_minus_Male_minus_2_period_54_1x3
+    VR2 = new Header_minus_Male_minus_2_period_54_1x3
 
-    dc_jack.VCC ~ R1.p1; R1.p2 ~ power.vcc; dc_jack.GND ~ power.gnd
+    Input_Conn.p1 ~ INPUT; Input_Conn.p2 ~ power.gnd
+    Output_Conn.p1 ~ OUTPUT; Output_Conn.p2 ~ power.gnd
+
+    dc_jack.VCC ~ Power_Sw.p1; Power_Sw.p2 ~ R1.p1; R1.p2 ~ power.vcc; dc_jack.GND ~ power.gnd
     C1.p1 ~ power.vcc; C1.p2 ~ power.gnd
+    D1.C ~ power.vcc; D1.A ~ power.gnd
+
+    ic.VCC ~ power.vcc; ic.VSS ~ power.gnd
+    ic.B ~ power.vcc; ic.C ~ power.vcc; ic.A ~ power.vcc; ic.E ~ power.vcc
+
+    INPUT ~ R3.p1; R3.p2 ~ power.gnd
+    INPUT ~ R2.p1; R2.p2 ~ C2.p1; C2.p2 ~ ic.F
+    ic.F ~ C3.p1; C3.p2 ~ ic.L_equal_F_hash; ic.F ~ R4.p1; R4.p2 ~ VR1.p1; VR1.p2 ~ VR1.p3; VR1.p3 ~ ic.L_equal_F_hash
+    ic.L_equal_F_hash ~ C4.p1; C4.p2 ~ ic.D
+    ic.D ~ C5.p1; C5.p2 ~ ic.J_equal_D_hash; ic.D ~ R5.p1; R5.p2 ~ ic.J_equal_D_hash
+    ic.J_equal_D_hash ~ C6.p1; C6.p2 ~ VR2.p1; VR2.p2 ~ OUTPUT; VR2.p3 ~ power.gnd

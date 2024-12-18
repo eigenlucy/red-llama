@@ -1,0 +1,10 @@
+component _3386P_minus_1_minus_105TLF:
+    # component _3386P_minus_1_minus_105TLF
+    footprint = "RES-ADJ-TH_3P-L9.5-W9.5-P2.54-BR-BS"
+    lcsc_id = "C116305"
+    mpn = "C116305"
+    # pins
+    signal _2 ~ pin 2
+    signal _1 ~ pin 1
+    signal _3 ~ pin 3
+

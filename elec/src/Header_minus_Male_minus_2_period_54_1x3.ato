@@ -1,0 +1,10 @@
+component Header_minus_Male_minus_2_period_54_1x3:
+    # component Header_minus_Male_minus_2_period_54_1x3
+    footprint = "HDR-TH_3P-P2.54-V-M-1"
+    lcsc_id = "C49257"
+    mpn = "C49257"
+    # pins
+    signal p3 ~ pin 3
+    signal p1 ~ pin 1
+    signal p2 ~ pin 2
+

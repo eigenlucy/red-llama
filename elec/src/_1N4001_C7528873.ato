@@ -1,0 +1,9 @@
+component _1N4001_C7528873:
+    # component _1N4001_C7528873
+    footprint = "SMA_L4.5-W2.7-LS5.1-RD"
+    lcsc_id = "C7528873"
+    mpn = "C7528873"
+    # pins
+    signal A ~ pin 2
+    signal C ~ pin 1
+
